@@ -17,6 +17,7 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -39,6 +40,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.vincent.swaggy.R
+import com.vincent.swaggy.navigation.ROUT_DETAIL
 import com.vincent.swaggy.ui.theme.Babyblue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -138,6 +140,9 @@ fun CategoryScreen(navController: NavController){
                     tint = Color.Black
                 )
 
+
+
+
             }
 
         }
@@ -180,6 +185,49 @@ fun CategoryScreen(navController: NavController){
             }
 
         }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Text(
+            text = "More categories coming soon...",
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+        )
+
+        Button(
+            onClick = {
+                navController.navigate(ROUT_DETAIL)
+            },
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+        ) {
+            Text(
+                text = "Explore All Products"
+            )
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Text(
+            text = "Follow us on Instagram @swaggy_ke",
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+        )
+
+        Spacer(modifier = Modifier.height(5.dp))
+
+        Text(
+            text = "Need help?Contact us at support @swaggy.co.ke.",
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+        )
+
+        Spacer(modifier = Modifier.height(15.dp))
+
+        Text(
+            text = "'Wear the vibe.Live the vibe.'",
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+            fontWeight = FontWeight.Bold
+        )
+
+
+
 
 
 

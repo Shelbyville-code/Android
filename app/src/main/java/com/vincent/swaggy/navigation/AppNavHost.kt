@@ -39,6 +39,15 @@ fun AppNavHost(
         composable(ROUT_CATEGORY) {
             CategoryScreen(navController)
         }
+        composable(ROUT_SPLASH) {
+            CategoryScreen(navController)
+        }
+        composable(ROUT_SCAFFOLD) {
+            CategoryScreen(navController)
+        }
+        composable(ROUT_DETAIL) {
+            CategoryScreen(navController)
+        }
 
     }
 }

@@ -16,7 +16,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
@@ -27,7 +26,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -40,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -56,6 +55,8 @@ import com.vincent.swaggy.ui.theme.Babyblue
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemScreen(navController: NavController) {
+
+    val mContext = LocalContext.current
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -203,7 +204,11 @@ fun ItemScreen(navController: NavController) {
 
                     Spacer(modifier = Modifier.width(5.dp))
                     Button(
-                        onClick = {},
+                        onClick = {
+                            val simToolKitLaunchIntent =
+                                mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                            simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                        },
                         colors = ButtonDefaults.buttonColors(Babyblue),
                         modifier = Modifier.padding(start = 20.dp, end = 20.dp, bottom = 20.dp)
                     ) {

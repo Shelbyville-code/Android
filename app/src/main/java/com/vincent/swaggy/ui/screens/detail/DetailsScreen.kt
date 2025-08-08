@@ -53,6 +53,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.vincent.swaggy.R
+import com.vincent.swaggy.navigation.ROUT_INTENT
 import com.vincent.swaggy.navigation.ROUT_ITEM
 import com.vincent.swaggy.ui.theme.Babyblue
 
@@ -137,7 +138,9 @@ fun DetailsScreen(navController: NavController){
         //FloatingActionButton
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { /* Add action */ },
+                onClick = {
+                    navController.navigate(ROUT_INTENT)
+                },
                 containerColor = Color.LightGray
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Add")

@@ -1,5 +1,6 @@
 package com.vincent.swaggy.ui.screens.splash
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -10,6 +11,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -23,10 +25,20 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.vincent.swaggy.R
+import com.vincent.swaggy.navigation.ROUT_HOME
+import com.vincent.swaggy.navigation.ROUT_LOGIN
 import com.vincent.swaggy.ui.theme.Babyblue
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun SplashScreen(navController: NavController){
+    val coroutine= rememberCoroutineScope()
+    coroutine.launch {
+        delay(2000)
+        navController.navigate(ROUT_LOGIN)
+    }
     Column (
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
